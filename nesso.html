@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kyle Lim's Nesso N1 construction worker safety monitoring project — a BLE sensor-to-dashboard data engineering pipeline.">
+  <meta name="theme-color" content="#0b0c0f">
+  <title>Nesso N1 Safety Monitor — Kyle Lim</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="profile-config.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Kyle Lim home"><span class="brand-mark">KL</span><span class="brand-name">Kyle Lim</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle><span></span><span></span></button>
+    <nav class="site-nav" data-nav aria-label="Primary navigation">
+      <a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="index.html#projects">Projects</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="case-hero section-shell">
+      <div class="case-breadcrumb reveal"><a href="index.html#projects">Projects</a><span>/</span><span>01</span></div>
+      <div class="case-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow">EG2A17 · DATA ENGINEERING PROJECT</div>
+          <h1>Construction Worker Safety Monitoring System</h1>
+          <p class="case-deck">A wearable sensor-to-dashboard pipeline that uses an Arduino Nesso N1, Bluetooth Low Energy and Python to identify movement patterns associated with falls, slip-trip-falls and near misses.</p>
+          <div class="case-tags"><span>Arduino Nesso N1</span><span>C++</span><span>BLE / Bleak</span><span>Python</span><span>MariaDB</span><span>SQLite</span><span>Streamlit</span></div>
+        </div>
+        <div class="case-hero-visual reveal reveal-delay">
+          <img src="nesso-device.png" alt="Arduino Nesso N1 wearable sensor device">
+        </div>
+      </div>
+      <div class="case-facts reveal">
+        <div><span>Role</span><strong>Data Processing &amp; Detection</strong></div>
+        <div><span>System type</span><strong>Real-time IoT data pipeline</strong></div>
+        <div><span>Sensor data</span><strong>6-axis IMU · 100 Hz</strong></div>
+        <div><span>Project format</span><strong>Team project</strong></div>
+      </div>
+    </section>
+
+    <section class="case-section section-shell" id="scope">
+      <div class="case-label reveal">01 / PROJECT SCOPE &amp; PROBLEM</div>
+      <div class="case-copy reveal">
+        <h2>Detecting the events that are easy to miss.</h2>
+        <p class="large-copy">Construction sites are high-risk environments where falls and slip-trip-fall incidents can cause serious injury. Near misses matter too: a worker may lose balance or stumble, recover, and never generate a conventional “fall” alert.</p>
+        <p>The goal was to build a cost-effective prototype that could continuously collect worker movement data, detect possible safety incidents, store the results and make the information easy for a supervisor to review. The project therefore required an end-to-end data pipeline, not just a sensor or a dashboard.</p>
+      </div>
+    </section>
+
+    <section class="architecture-section section-shell reveal" aria-labelledby="pipeline-title">
+      <div class="section-kicker">SYSTEM ARCHITECTURE</div>
+      <h2 id="pipeline-title">From movement to a safety alert.</h2>
+      <div class="pipeline" role="list" aria-label="Nesso project data pipeline">
+        <div class="pipeline-node" role="listitem"><span class="node-no">01</span><strong>Nesso N1</strong><small>Accelerometer + gyroscope</small></div>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <div class="pipeline-node" role="listitem"><span class="node-no">02</span><strong>BLE</strong><small>100 Hz sensor stream</small></div>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <div class="pipeline-node" role="listitem"><span class="node-no">03</span><strong>Python</strong><small>Validate + process + detect</small></div>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <div class="pipeline-node" role="listitem"><span class="node-no">04</span><strong>MariaDB / SQLite</strong><small>Readings + events</small></div>
+        <div class="pipeline-arrow" aria-hidden="true">→</div>
+        <div class="pipeline-node" role="listitem"><span class="node-no">05</span><strong>Streamlit</strong><small>Trends + alerts + history</small></div>
+      </div>
+    </section>
+
+    <section class="case-section section-shell" id="role">
+      <div class="case-label reveal">02 / MY ROLE &amp; SOLUTION</div>
+      <div class="case-copy reveal">
+        <h2>I focused on the layer that turns sensor readings into decisions.</h2>
+        <p class="large-copy">My primary contribution was data processing and detection. I worked on combining raw X, Y and Z sensor values into movement features, developing the rule-based state machine, testing event behaviour and tuning the detection thresholds.</p>
+        <div class="role-grid">
+          <article><span>Feature engineering</span><p>Calculated total acceleration magnitude and total gyroscope magnitude so the logic could respond to movement regardless of direction.</p></article>
+          <article><span>Detection logic</span><p>Developed and tested a state-machine approach that looks for a sequence of free-fall, impact and post-impact behaviour, with rotational spikes used for near-miss detection.</p></article>
+          <article><span>Threshold tuning</span><p>Used controlled staged tests and offline replay to compare detected events against recorded ground truth, then adjusted thresholds to improve practical triggering.</p></article>
+          <article><span>System integration</span><p>Worked within the shared Python pipeline so the same processed events could be stored in the database and surfaced to the dashboard.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section section-shell" id="process">
+      <div class="case-label reveal">03 / WORK PROCESS</div>
+      <div class="case-copy reveal">
+        <h2>A pipeline designed for clean, explainable data.</h2>
+        <div class="process-list">
+          <div class="process-step"><span>01</span><div><h3>Collect</h3><p>The Nesso N1 samples three-axis acceleration and three-axis angular rate at 100 samples per second.</p></div></div>
+          <div class="process-step"><span>02</span><div><h3>Transmit</h3><p>The Arduino C++ program packages the six values and sends them to the computer over Bluetooth Low Energy. Python receives the notifications using Bleak.</p></div></div>
+          <div class="process-step"><span>03</span><div><h3>Validate</h3><p>Incoming packets are decoded, checked for exactly six numerical values and rejected if they are malformed or outside the Nesso sensor limits.</p></div></div>
+          <div class="process-step"><span>04</span><div><h3>Store</h3><p>MariaDB is the main structured store. SQLite is supported as a secondary fallback so the pipeline can still operate locally when MariaDB is unavailable.</p></div></div>
+          <div class="process-step"><span>05</span><div><h3>Engineer features</h3><p>Acceleration and gyroscope magnitudes are calculated, and a five-sample moving average is available during offline processing to reduce small fluctuations.</p></div></div>
+          <div class="process-step"><span>06</span><div><h3>Detect &amp; visualise</h3><p>The detector classifies FALL, STF and NEAR_MISS events, then Streamlit displays active alerts, sensor trends and the event history.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-section section-shell">
+      <div class="section-heading reveal">
+        <div class="section-kicker">PROJECT EVIDENCE</div>
+        <h2>Code, testing and live output.</h2>
+        <p>The portfolio uses real material from the completed project rather than stock imagery.</p>
+      </div>
+      <div class="media-grid">
+        <figure class="media-card media-card-wide reveal" data-lightbox>
+          <img src="nesso-detector-code.png" alt="Python fall detection state-machine code used in the Nesso project">
+          <figcaption><strong>Detection state machine</strong><span>Python logic used to distinguish fall patterns and near misses.</span></figcaption>
+        </figure>
+        <figure class="media-card reveal" data-lightbox>
+          <img src="nesso-thresholds.png" alt="Final tuned thresholds used during Nesso project testing">
+          <figcaption><strong>Threshold tuning</strong><span>Controlled testing informed the tuned fall and impact thresholds.</span></figcaption>
+        </figure>
+        <figure class="media-card reveal" data-lightbox>
+          <img src="nesso-events.png" alt="Table of detected safety events produced by the system">
+          <figcaption><strong>Detected events</strong><span>Stored events include type, severity, peak value and time.</span></figcaption>
+        </figure>
+        <figure class="media-card media-card-wide reveal" data-lightbox>
+          <img src="nesso-sensor-chart.png" alt="Angular-rate time-series chart generated from Nesso sensor data">
+          <figcaption><strong>Sensor visualisation</strong><span>Motion changes can be inspected over time from stored data.</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="video-card reveal">
+        <video controls preload="metadata" poster="nesso-testing.jpg" aria-label="Short controlled testing clip from the Nesso N1 project">
+          <source src="nesso-demo.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <div class="video-caption"><span>Controlled testing clip</span><p>A short project recording showing the type of staged movement testing used during development.</p></div>
+      </div>
+    </section>
+
+    <section class="case-section section-shell" id="outcome">
+      <div class="case-label reveal">04 / OUTCOME &amp; RESULTS</div>
+      <div class="case-copy reveal">
+        <h2>A complete working prototype — with limitations made explicit.</h2>
+        <p class="large-copy">The completed prototype successfully collected real-time accelerometer and gyroscope data over BLE, cleaned and stored the readings, generated FALL, STF and NEAR_MISS events from controlled movement patterns, and displayed sensor graphs, event records and active alerts in Streamlit.</p>
+        <div class="outcome-grid">
+          <article><span class="outcome-icon">✓</span><strong>End-to-end pipeline</strong><p>Sensor collection, ingestion, processing, storage, detection and visualisation were integrated into one workflow.</p></article>
+          <article><span class="outcome-icon">✓</span><strong>Structured data</strong><p>Raw IMU readings and detected events were stored in database tables for later querying and analysis.</p></article>
+          <article><span class="outcome-icon">✓</span><strong>Live monitoring</strong><p>The dashboard exposed active alerts, recent sensor trends, event counts and historical event details.</p></article>
+        </div>
+        <div class="limitations">
+          <h3>What I would improve next</h3>
+          <p>The detector currently depends on fixed thresholds and was tested mainly in controlled conditions. A production version would need broader real-world testing to measure false positives and false negatives across different workers and movement styles. Future enhancements could include on-device edge detection and large-scale supervisor alerts.</p>
+        </div>
+      </div>
+    </section>
+
+    <nav class="next-project section-shell" aria-label="Project navigation">
+      <a href="index.html#projects"><span>Back</span><strong>All projects</strong></a>
+      <a href="stocks.html"><span>Next project</span><strong>MarketLens Forecast Lab →</strong></a>
+    </nav>
+  </main>
+
+  <footer class="site-footer section-shell"><p>© 2026 Kyle Lim. AI &amp; Data Engineering portfolio.</p><a href="#main">Back to top ↑</a></footer>
+  <div class="lightbox" data-lightbox-modal aria-hidden="true"><button type="button" aria-label="Close image" data-lightbox-close>×</button><img alt="Expanded project image" data-lightbox-image></div>
+</body>
+</html>
