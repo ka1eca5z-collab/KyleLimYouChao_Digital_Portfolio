@@ -1,21 +1,20 @@
-# MarketLens — Interactive Forecast Lab
+# Kyle Lim — AI & Data Engineering Portfolio
 
-Educational stock-market forecasting project used in Kyle Lim's portfolio.
+GitHub Pages portfolio with three selected projects.
 
-## What it does
-- Uses historical monthly AAPL, S&P 500 and NASDAQ values.
-- Creates only past-looking lag, moving-average and volatility features.
-- Uses a chronological 75/25 train-test split.
-- Fits linear regression and exports hold-out predictions.
-- The portfolio page replays those predictions interactively month by month.
+## 01 — Nesso Safety Monitoring
+Real-time Nesso N1 / BLE sensor-data pipeline with feature engineering, event detection, database storage and Streamlit dashboarding.
 
-## Hold-out results
-- MAE: $4.54
-- RMSE: $6.51
-- R²: 0.981
-- Previous-month baseline MAE: $4.59
-- Direction accuracy: 49.5%
+## 02 — MarketLens: Interactive Forecast Lab
+An educational AAPL forecasting experiment using chronological machine-learning evaluation. The portfolio page includes a **Run forecast** / **Step one month** visual replay that compares model predictions with the real hold-out month.
 
-A high price-level R² does not mean the model is a reliable trading signal. This project explicitly shows that limitation.
+Source: `projects/MarketLens_Interactive_Forecasting/`
 
-Educational prototype only; not financial advice.
+## 03 — TradeLab: Interactive Strategy Backtester
+A moving-average crossover paper-trading simulator. Visitors can change strategy windows, fees and starting capital, then run or step through the backtest while BUY/SELL decisions and portfolio equity update on screen.
+
+Source: `projects/TradeLab_Strategy_Backtester/`
+
+Both market projects are educational historical-data experiments, not financial advice.
+
+Contact links are configured in `profile-config.js`.
