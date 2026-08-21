@@ -316,3 +316,18 @@ button { font: inherit; }
 .mini-market-top { border-bottom:1px solid var(--line); }.mini-market-foot { border-top:1px solid var(--line); }
 @media(max-width:980px){.lab-toolbar-grid{grid-template-columns:repeat(2,1fr)}.lab-metrics-six{grid-template-columns:repeat(3,1fr)}.lab-metrics-six>div:nth-child(4){border-left:0;border-top:1px solid var(--line)}.lab-metrics-six>div:nth-child(5),.lab-metrics-six>div:nth-child(6){border-top:1px solid var(--line)}}
 @media(max-width:720px){.lab-toolbar,.lab-toolbar-grid{display:grid;grid-template-columns:1fr}.lab-actions,.lab-actions-row{margin:0;display:grid;grid-template-columns:1fr;padding:12px 14px}.lab-metrics,.lab-metrics-six{grid-template-columns:repeat(2,1fr)}.lab-metrics>div{border-top:1px solid var(--line)!important;border-left:0!important}.lab-metrics>div:nth-child(odd){border-right:1px solid var(--line)}.lab-canvas{height:320px}.lab-canvas-small{height:165px}.market-card-media{min-height:260px}.mini-market-preview{width:96%}}
+
+
+.portrait-photo {
+  padding: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.portrait-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+}
