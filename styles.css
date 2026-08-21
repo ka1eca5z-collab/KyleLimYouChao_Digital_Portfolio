@@ -331,3 +331,37 @@ button { font: inherit; }
   object-fit: cover;
   object-position: center center;
 }
+
+.about-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-self: start;
+}
+
+.about-quick {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  max-width: 280px;
+}
+
+.about-quick div {
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.about-quick span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  color: #8ea6c4;
+}
+
+.about-quick strong {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #f4f6f8;
+}
