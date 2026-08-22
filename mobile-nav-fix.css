@@ -1,0 +1,123 @@
+
+/* =========================================================
+   MOBILE NAVIGATION FIX
+   Add this at the VERY END of styles.css
+   ========================================================= */
+
+@media (max-width: 720px) {
+  /* Keep the mobile header above the page */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: var(--header-h);
+    background: rgba(11, 12, 15, .92);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(18px);
+  }
+
+  .site-header.scrolled {
+    z-index: 1000;
+    width: min(calc(100% - 30px), var(--max));
+    padding-inline: 0;
+    background: rgba(11, 12, 15, .92);
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 1100;
+    display: block;
+    flex: 0 0 42px;
+  }
+
+  /* Closed menu: completely hidden */
+  .site-nav {
+    position: fixed !important;
+    top: calc(var(--header-h) + 10px) !important;
+    left: 15px !important;
+    right: 15px !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: auto !important;
+    max-height: calc(100dvh - var(--header-h) - 25px);
+    overflow-y: auto;
+    display: none !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px !important;
+    margin: 0 !important;
+    border: 1px solid var(--line-strong);
+    border-radius: 16px;
+    background: rgba(15, 17, 22, .98);
+    box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    backdrop-filter: blur(20px);
+    z-index: 2000 !important;
+  }
+
+  /* Open menu */
+  .site-nav.open {
+    display: flex !important;
+  }
+
+  .site-nav a {
+    display: flex !important;
+    align-items: center;
+    min-height: 52px;
+    width: 100%;
+    padding: 13px 14px !important;
+    font-size: 16px;
+    line-height: 1.2;
+    color: var(--muted);
+    border-radius: 10px;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--text);
+    background: rgba(255,255,255,.055);
+  }
+
+  .site-nav a::after {
+    display: none !important;
+  }
+
+  /* Make sure the hero starts below the header normally */
+  .hero {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Prevent the large desktop hero layout from causing clipping */
+  .hero-copy {
+    min-width: 0;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: normal;
+  }
+
+  .hero-lede {
+    max-width: 100%;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 390px) {
+  .site-header {
+    height: 68px;
+  }
+
+  :root {
+    --header-h: 68px;
+  }
+
+  .site-nav {
+    top: calc(var(--header-h) + 8px) !important;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 13.5vw, 58px);
+  }
+}
