@@ -317,359 +317,133 @@ button { font: inherit; }
 @media(max-width:980px){.lab-toolbar-grid{grid-template-columns:repeat(2,1fr)}.lab-metrics-six{grid-template-columns:repeat(3,1fr)}.lab-metrics-six>div:nth-child(4){border-left:0;border-top:1px solid var(--line)}.lab-metrics-six>div:nth-child(5),.lab-metrics-six>div:nth-child(6){border-top:1px solid var(--line)}}
 @media(max-width:720px){.lab-toolbar,.lab-toolbar-grid{display:grid;grid-template-columns:1fr}.lab-actions,.lab-actions-row{margin:0;display:grid;grid-template-columns:1fr;padding:12px 14px}.lab-metrics,.lab-metrics-six{grid-template-columns:repeat(2,1fr)}.lab-metrics>div{border-top:1px solid var(--line)!important;border-left:0!important}.lab-metrics>div:nth-child(odd){border-right:1px solid var(--line)}.lab-canvas{height:320px}.lab-canvas-small{height:165px}.market-card-media{min-height:260px}.mini-market-preview{width:96%}}
 
-
-.portrait-photo {
-  padding: 0;
-  overflow: hidden;
-  aspect-ratio: 4 / 5;
-}
-
-.portrait-photo img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  object-position: center center;
-}
-
-.about-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  align-self: start;
-}
-
-.about-quick {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  max-width: 280px;
-}
-
-.about-quick div {
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.about-quick span {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  color: #8ea6c4;
-}
-
-.about-quick strong {
-  display: block;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #f4f6f8;
-}
-
-
-/* ===== Mobile polish / responsive navigation fix ===== */
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 @media (max-width: 720px) {
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    width: calc(100% - 30px);
-    min-height: var(--header-h);
+
+ 
+ .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 3000 !important;
+    width: min(calc(100% - 30px), var(--max)) !important;
+    height: var(--header-h) !important;
+    overflow: visible !important;
+    background: transparent;
   }
 
   .site-header.scrolled {
-    width: 100%;
-    padding-inline: 15px;
-    z-index: 1000;
-    background: rgba(11,12,15,.92);
-    border-bottom: 1px solid var(--line);
-  }
-
-  .brand {
-    position: relative;
-    z-index: 1002;
-  }
-
-  .menu-toggle {
-    position: relative;
-    z-index: 1003;
-    flex: 0 0 auto;
-    display: grid;
-    place-content: center;
-  }
-
-  .site-nav {
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    right: 0;
-    inset: auto 0 auto 0;
-    width: 100%;
-    z-index: 1001;
-    max-height: calc(100vh - var(--header-h) - 30px);
-    overflow-y: auto;
-    box-shadow: 0 24px 60px rgba(0,0,0,.45);
-    background: rgba(15,17,22,.98);
-  }
-
-  .site-nav.open {
-    display: flex;
-  }
-
-  .site-nav a {
-    display: block;
-    width: 100%;
-    min-height: 48px;
-  }
-
-  .hero {
-    padding-top: 52px;
-  }
-
-  .hero-copy,
-  .section-content,
-  .contact-copy,
-  .project-info {
-    min-width: 0;
-  }
-
-  .portrait-card {
-    width: 100%;
-    min-height: 0;
-    max-height: none;
-  }
-
-  .portrait-placeholder {
-    min-height: 430px;
-  }
-
-  .about-sidebar,
-  .about-quick {
-    max-width: none;
-    width: 100%;
-  }
-
-  .split-section {
-    gap: 36px;
-  }
-
-  .about-quick {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: 14px;
-  }
-
-  .about-quick div {
-    padding: 16px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: rgba(255,255,255,.015);
-  }
-
-  .project-card,
-  .project-card-featured,
-  .project-grid-two,
-  .project-media,
-  .market-card-media {
-    min-width: 0;
-  }
-
-  .project-card-featured .project-media,
-  .project-card-compact .project-media {
-    min-height: 0;
-    height: auto;
-  }
-
-  .project-card-featured .project-media img,
-  .project-card-compact .project-media img {
-    width: 100%;
-    height: auto;
-  }
-
-  .media-card img,
-  .case-hero-visual img,
-  .case-hero-browser img {
-    width: 100%;
-    height: auto;
-  }
-
-  .lab-toolbar,
-  .lab-toolbar-grid,
-  .lab-actions {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .lab-canvas-wrap {
-    min-width: 0;
-    overflow: hidden;
-  }
-
-  .lab-canvas {
-    max-width: 100%;
-  }
-
-  .contact-link {
-    min-height: 58px;
-  }
-}
-
-@media (max-width: 420px) {
-  .section-shell,
-  .site-header {
-    width: calc(100% - 24px);
-  }
-
-  .site-header.scrolled {
-    padding-inline: 12px;
-  }
-
-  .about-quick {
-    grid-template-columns: 1fr;
-  }
-
-  .portrait-placeholder {
-    min-height: 360px;
-  }
-
-  .hero h1,
-  .case-hero h1,
-  .placeholder-page h1 {
-    font-size: clamp(42px, 15vw, 62px);
-  }
-
-  .hero-lede,
-  .case-deck,
-  .large-copy {
-    font-size: 17px;
-  }
-}
-
-/* =========================================================
-   MOBILE NAVIGATION FIX
-   Add this at the VERY END of styles.css
-   ========================================================= */
-
-@media (max-width: 720px) {
-  /* Keep the mobile header above the page */
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    height: var(--header-h);
-    background: rgba(11, 12, 15, .92);
+    width: 100% !important;
+    padding-inline: 15px !important;
+    background: rgba(11,12,15,.92) !important;
     border-bottom: 1px solid var(--line);
     backdrop-filter: blur(18px);
   }
 
-  .site-header.scrolled {
-    z-index: 1000;
-    width: min(calc(100% - 30px), var(--max));
-    padding-inline: 0;
-    background: rgba(11, 12, 15, .92);
-  }
-
+  /* Hamburger is ALWAYS on top and remains clickable */
   .menu-toggle {
-    position: relative;
-    z-index: 1100;
-    display: block;
+    position: relative !important;
+    z-index: 3200 !important;
+    display: block !important;
     flex: 0 0 42px;
+    cursor: pointer;
+    pointer-events: auto !important;
   }
 
-  /* Closed menu: completely hidden */
+  /* 
+     IMPORTANT:
+     The dropdown is anchored to the HEADER, not the viewport.
+     It starts below the header, so it can NEVER cover the
+     hamburger button.
+  */
   .site-nav {
-    position: fixed !important;
-    top: calc(var(--header-h) + 10px) !important;
-    left: 15px !important;
-    right: 15px !important;
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: auto !important;
+    right: 0 !important;
     bottom: auto !important;
-    width: auto !important;
-    height: auto !important;
-    max-height: calc(100dvh - var(--header-h) - 25px);
-    overflow-y: auto;
+
+    width: min(260px, calc(100vw - 30px)) !important;
+    max-height: calc(100dvh - var(--header-h) - 25px) !important;
+    overflow-y: auto !important;
+
     display: none !important;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 2px !important;
+
     margin: 0 !important;
-    border: 1px solid var(--line-strong);
-    border-radius: 16px;
-    background: rgba(15, 17, 22, .98);
-    box-shadow: 0 18px 50px rgba(0,0,0,.45);
+    padding: 8px !important;
+
+    border: 1px solid var(--line-strong) !important;
+    border-radius: 16px !important;
+    background: rgba(15,17,22,.985) !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,.5) !important;
     backdrop-filter: blur(20px);
-    z-index: 2000 !important;
+
+    z-index: 3100 !important;
   }
 
-  /* Open menu */
   .site-nav.open {
     display: flex !important;
   }
 
+  /* Each menu item is a proper large touch target */
   .site-nav a {
     display: flex !important;
-    align-items: center;
-    min-height: 52px;
-    width: 100%;
-    padding: 13px 14px !important;
-    font-size: 16px;
-    line-height: 1.2;
-    color: var(--muted);
-    border-radius: 10px;
+    align-items: center !important;
+    width: 100% !important;
+    min-height: 50px !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    color: var(--muted) !important;
   }
 
   .site-nav a:hover,
-  .site-nav a:focus-visible {
-    color: var(--text);
-    background: rgba(255,255,255,.055);
+  .site-nav a:focus-visible,
+  .site-nav a:active {
+    color: var(--text) !important;
+    background: rgba(255,255,255,.06) !important;
   }
 
   .site-nav a::after {
     display: none !important;
   }
 
-  /* Make sure the hero starts below the header normally */
-  .hero {
+  /* The page remains underneath the header/menu */
+  .hero,
+  main {
     position: relative;
     z-index: 1;
   }
 
-  /* Prevent the large desktop hero layout from causing clipping */
-  .hero-copy {
-    min-width: 0;
+  /* Prevent the hero from creating a competing stacking layer */
+  .hero-grid {
+    z-index: 0;
+    pointer-events: none;
   }
 
-  .hero h1 {
-    max-width: 100%;
-    overflow-wrap: normal;
-  }
-
-  .hero-lede {
-    max-width: 100%;
+  .hero-copy,
+  .portrait-card {
+    position: relative;
+    z-index: 2;
   }
 }
 
-/* Extra-small phones */
+/* Very small screens */
 @media (max-width: 390px) {
-  .site-header {
-    height: 68px;
-  }
-
   :root {
     --header-h: 68px;
   }
 
   .site-nav {
-    top: calc(var(--header-h) + 8px) !important;
+    width: min(250px, calc(100vw - 30px)) !important;
   }
 
   .hero h1 {
     font-size: clamp(42px, 13.5vw, 58px);
   }
 }
+
 
