@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A student SQLite project with relational tables, six reproducible queries and downloadable Python source.">
+  <meta name="theme-color" content="#0b0c0f">
+  <title>Retail SQL Lab — Kyle Lim</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="profile-config.js" defer></script>
+  <script src="script.js" defer></script>
+<link rel="stylesheet" href="learning.css">
+<script src="learning.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Kyle Lim home"><span class="brand-mark">KL</span><span class="brand-name">Kyle Lim</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle><span></span><span></span></button>
+    <nav class="site-nav" data-nav aria-label="Primary navigation">
+      <a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="index.html#projects">Projects</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+<main id="main"><section class="section-shell learning-hero"><a class="text-link" href="index.html#projects">← All projects</a><div class="eyebrow">SUPPLEMENTARY / SQL PRACTICE</div><h1>Small shop.<br><span class="text-accent">Useful queries.</span></h1><p class="large-copy">Retail SQL Lab</p><p class="case-deck">A relational database for a fictional stationery shop. Explore how tables connect, turn orders into sales summaries, and find customers who have not ordered.</p><div class="case-tags"><span>SQLite</span><span>Python</span><span>Joins</span><span>Aggregation</span></div><div class="hero-actions"><a class="button button-primary" href="#query-lab">Explore the queries ↓</a><a class="button button-ghost" href="projects/Retail_SQL_Lab/retail_sql_lab.sql" download>Download SQL ↗</a></div></section>
+<section class="section-shell learning-section"><div class="section-kicker">THE DATA MODEL</div><h2>Four tables, one connected story.</h2><div class="schema-grid"><article><span class="mini-label">TABLE</span><h3>Customers</h3><p>4 fictional customers · customer_id</p></article><article><span class="mini-label">TABLE</span><h3>Orders</h3><p>6 orders · customer_id → customers</p></article><article><span class="mini-label">TABLE</span><h3>Order items</h3><p>8 line items · order_id + product_id</p></article><article><span class="mini-label">TABLE</span><h3>Products</h3><p>4 products · product_id</p></article></div><p class="source-note">Synthetic sample data. Prices are stored as integer cents; the total sales value is S$87.00.</p></section><section class="section-shell learning-section" id="query-lab"><div class="section-kicker">GUIDED QUERY EXPLORER</div><h2>Ask a question. Read the SQL.</h2><p>Choose a query to inspect its result and the idea behind it. These saved results were generated with SQLite; download the project to execute or edit the SQL yourself.</p><div class="query-layout"><div class="query-options" aria-label="Choose a SQL example"><button type="button" data-query="0" aria-pressed="true"><span>01</span>Filter a product catalogue</button><button type="button" data-query="1" aria-pressed="false"><span>02</span>Join orders to customers</button><button type="button" data-query="2" aria-pressed="false"><span>03</span>Calculate sales by product</button><button type="button" data-query="3" aria-pressed="false"><span>04</span>Find repeat customers</button><button type="button" data-query="4" aria-pressed="false"><span>05</span>Find customers without orders</button><button type="button" data-query="5" aria-pressed="false"><span>06</span>Summarise daily revenue</button></div><div class="query-panel" aria-live="polite"><span class="mini-label" id="query-topic"></span><h3 id="query-question"></h3><pre><code id="query-code"></code></pre><div class="result-heading"><strong>Result</strong><span id="row-count"></span></div><div class="table-scroll"><table id="query-result"></table></div><p id="query-note"></p></div></div></section><section class="section-shell learning-section"><div class="section-kicker">RUN IT YOURSELF</div><h2>Python. SQLite. No extra packages.</h2><p>The source contains the schema, seed data, six SQL queries and a Python runner. Each run creates a fresh database and checks the total sales value and foreign keys.</p><div class="hero-actions"><a class="button button-primary" href="https://github.com/ka1eca5z-collab/KyleLimYouChao_Digital_Portfolio/tree/main/projects/Retail_SQL_Lab" target="_blank" rel="noreferrer">View project source ↗</a><a class="button button-ghost" href="https://www.hackerrank.com/certificates/0e6ae8bfab43" target="_blank" rel="noreferrer">SQL Intermediate credential ↗</a></div><p class="source-note">A student-level portfolio demonstration using fictional data, not a production shop or a claimed school assignment.</p></section></main><footer class="site-footer section-shell"><p>© 2026 Kyle Lim · AI &amp; Data Engineering</p><a href="index.html#projects">All projects ↗</a></footer></body></html>

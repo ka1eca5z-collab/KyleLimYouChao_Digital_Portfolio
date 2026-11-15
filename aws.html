@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="AWS Kitchenware Marketplace coursework case study by Kyle Lim.">
+  <meta name="theme-color" content="#0b0c0f">
+  <title>AWS Kitchenware Marketplace — Kyle Lim</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="profile-config.js" defer></script>
+  <script src="script.js" defer></script>
+<link rel="stylesheet" href="learning.css">
+<script src="learning.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="Kyle Lim home"><span class="brand-mark">KL</span><span class="brand-name">Kyle Lim</span></a>
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle><span></span><span></span></button>
+    <nav class="site-nav" data-nav aria-label="Primary navigation">
+      <a href="index.html#about">About</a><a href="index.html#skills">Skills</a><a href="index.html#projects">Projects</a><a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+<main id="main"><section class="section-shell learning-hero"><a class="text-link" href="index.html#projects">← All projects</a><div class="eyebrow">05 / AWS · SCHOOL PROJECT</div><h1>A product catalogue.<br><span class="text-accent">Built in the cloud.</span></h1><p class="large-copy">AWS Kitchenware Marketplace</p><p class="case-deck">I built a kitchenware catalogue website for a cloud computing assignment, using an EC2 web server and product images stored in Amazon S3. Each product card displays an image, name, price and description.</p><div class="case-tags"><span>Amazon EC2</span><span>Amazon S3</span><span>CloudWatch</span><span>Security groups</span></div><div class="hero-actions"><a class="button button-primary" href="#cloud-work">Explore the implementation ↓</a></div></section><section class="section-shell learning-section"><div class="section-kicker">THE WEBSITE</div><h2>Nine products. One clear catalogue.</h2><figure class="evidence-figure"><a href="evidence/aws-catalogue.jpg" target="_blank" rel="noreferrer"><img src="evidence/aws-catalogue.jpg" alt="Kitchenware website displaying knife, blender and chopping board with prices" loading="lazy"></a><figcaption>Archived coursework screenshot: Premium Kitchenware product catalogue. · Open image ↗</figcaption></figure><p>The catalogue covered nine kitchenware products, including a knife, blender, chopping board, cooking pot, saucepan, digital scale, frying pan, kettle and utensil set. The project demonstrates a cloud-hosted catalogue; checkout and payment processing are outside this showcase.</p></section><section class="section-shell learning-section" id="cloud-work"><div class="section-kicker">CLOUD IMPLEMENTATION</div><h2>Hosting, storage and monitoring.</h2><div class="schema-grid"><article><span class="mini-label">COMPUTE</span><h3>Amazon EC2</h3><p>Used a cloud server to serve the e-commerce catalogue website and configured security-group rules for the lab environment.</p></article><article><span class="mini-label">OBJECT STORAGE</span><h3>Amazon S3</h3><p>Uploaded nine product images to an S3 bucket and used them in the website. Enabled bucket versioning and inspected object versions.</p></article><article><span class="mini-label">OBSERVABILITY</span><h3>CloudWatch</h3><p>Created a high-CPU alarm with an 80% threshold over a five-minute period. A later screenshot showed the alarm in the OK state.</p></article><article><span class="mini-label">COST AWARENESS</span><h3>Idle-resource alarm</h3><p>Configured an idle-instance alarm with a ≤1 threshold across six datapoints over 30 minutes. The captured state was insufficient data; measured savings were not established.</p></article></div><p class="source-note">This case study documents the school deployment shown in the supplied August 2026 screenshots. The original lab endpoint is not presented as a currently available service. Account and infrastructure identifiers are omitted.</p></section><section class="section-shell learning-section"><div class="section-kicker">WHAT I LEARNED</div><h2>Connect services to a working interface.</h2><p>The assignment connected web development with practical cloud setup: serving a website, managing image objects and versions, configuring network access and checking server metrics. A future iteration would add HTTPS, tighten administrative access and expand monitoring validation.</p><a class="text-link" href="projects/AWS_Cloud_Storage_Starter/README.md">Supplementary private-S3 CloudFormation practice ↗</a><p class="source-note">The linked template is a separate portfolio practice resource, not the source of the original coursework deployment.</p></section></main><footer class="site-footer section-shell"><p>© 2026 Kyle Lim · AI &amp; Data Engineering</p><a href="index.html#projects">All projects ↗</a></footer></body></html>

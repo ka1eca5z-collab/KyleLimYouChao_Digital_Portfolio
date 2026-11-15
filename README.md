@@ -1,20 +1,9 @@
-# Kyle Lim — AI & Data Engineering Portfolio
+# Kyle Lim You Chao — Digital Portfolio
 
-GitHub Pages portfolio with three selected projects.
+Static GitHub Pages portfolio with five project case studies: Nesso worker safety IoT, MarketLens forecasting, TradeLab backtesting, School Data Cleaning & Analysis (MySQL and Colab), and AWS Kitchenware Marketplace (EC2, S3, CloudWatch).
 
-## 01 — Nesso Safety Monitoring
-Real-time Nesso N1 / BLE sensor-data pipeline with feature engineering, event detection, database storage and Streamlit dashboarding.
+SQL coursework figures distinguish the MySQL export (161 schools / 6,772 subject records) from the final Python-cleaned dataset (161 / 6,766, with 288 distinct subject labels). Screenshots document coursework; original school source files are not included. AWS lab availability is not claimed.
 
-## 02 — MarketLens: Interactive Forecast Lab
-An educational AAPL forecasting experiment using chronological machine-learning evaluation. The portfolio page includes a **Run forecast** / **Step one month** visual replay that compares model predictions with the real hold-out month.
+Additional practice resources are clearly separate: `sql-lab.html` and `projects/Retail_SQL_Lab/` use synthetic SQLite data; `projects/AWS_Cloud_Storage_Starter/` is an undeployed private-S3 CloudFormation example. Run SQL with `python projects/Retail_SQL_Lab/run_lab.py`.
 
-Source: `projects/MarketLens_Interactive_Forecasting/`
-
-## 03 — TradeLab: Interactive Strategy Backtester
-A moving-average crossover paper-trading simulator. Visitors can change strategy windows, fees and starting capital, then run or step through the backtest while BUY/SELL decisions and portfolio equity update on screen.
-
-Source: `projects/TradeLab_Strategy_Backtester/`
-
-Both market projects are educational historical-data experiments, not financial advice.
-
-Contact links are configured in `profile-config.js`.
+Serve this directory with a static HTTP server. No build step is required. Profile links are configured in `profile-config.js`.
